@@ -35,9 +35,15 @@ onMounted(async () => {
 const handleSendMessage = async (text: string) => {
   messages.value.push({ text, sender: 'user' })
 
-  // Simulate typing indicator or direct response
-  const assistantResponse = await generateResponse(text)
-  messages.value.push({ text: assistantResponse, sender: 'assistant' })
+  try {
+    const assistantResponse = await generateResponse(text)
+    messages.value.push({ text: assistantResponse, sender: 'assistant' })
+  } catch {
+    messages.value.push({
+      text: 'Sorry, the AI service encountered an error. Please try again later.',
+      sender: 'assistant'
+    })
+  }
 }
 </script>
 

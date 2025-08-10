@@ -5,10 +5,16 @@ const isReady = ref(false)
 
 export async function loadModel() {
   isLoading.value = true
-  // Simulate model loading
-  await new Promise((resolve) => setTimeout(resolve, 1000))
-  isReady.value = true
-  isLoading.value = false
+  try {
+    const { pipeline } = await import('@xenova/transformers')
+    // Initialize small-talk model
+    await pipeline('text-generation', 'Xenova/gpt-2')
+    isReady.value = true
+  } catch (error) {
+    console.error('Model loading failed:', error)
+  } finally {
+    isLoading.value = false
+  }
 }
 
 export async function generateResponse(text: string): Promise<string> {
