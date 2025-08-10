@@ -1,18 +1,16 @@
-# small-talk
+# small-talk: AI-Powered Conversation Interface
 
-This template should help get you started developing with Vue 3 in Vite.
+This Vue 3 application implements a conversational interface using @xenova/transformers for natural language processing capabilities.
+
+## Technology Stack
+- **Vue 3** - Progressive JavaScript framework
+- **Vite** - Next-generation frontend tooling
+- **TypeScript** - Strongly typed JavaScript
+- **@xenova/transformers** - NLP library for small talk functionality
 
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
 
 ## Project Setup
 
@@ -20,20 +18,29 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Development
 
 ```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### Production Build
 
 ```sh
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+### Code Quality
 
 ```sh
-npm run lint
+npm run lint     # Run ESLint with auto-fix
+npm run format   # Format src/ with Prettier
+npm run type-check  # Verify TypeScript
 ```
+
+## Architecture Overview
+
+- `src/main.ts`: Application entry point
+- `src/components/`: Vue components
+- `src/App.vue`: Root component implementing conversation interface
+- AI processing handled through @xenova/transformers library
